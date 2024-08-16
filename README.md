@@ -6,8 +6,6 @@ Frontend: Nginx serving static files.
 Backend: Node.js application connected to MongoDB.
 Database: MongoDB.
 Directory Structure
-arduino
-Copy code
 fullstack-app/
 │
 ├── frontend/
