@@ -9,7 +9,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /mnt/data # For local testing, change for production use
+    path: /data/mongodb 
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
