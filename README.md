@@ -1,5 +1,5 @@
-##Full-Stack Application with Kubernetes
-Overview
+## Full-Stack Application with Kubernetes
+# Overview
 This repository contains a full-stack application deployed using Kubernetes. The stack includes:
 
 Frontend: Nginx serving static files.
@@ -33,29 +33,32 @@ fullstack-app/
 
 
 
-1. Build and Push Docker Images
-Frontend
+## 1. Build and Push Docker Images
+# Frontend
 Navigate to the frontend directory:
 
 cd frontend
+
 Build the Docker image:
 
+``` bash
 docker build -t your-dockerhub-username/nginx-frontend:latest .
 
 Push the Docker image to Docker Hub:
 
 docker push your-dockerhub-username/nginx-frontend:latest
-
-Backend
+```
+# Backend
 Navigate to the backend directory:
 
-bash
-Copy code
-cd ../backend
 Build the Docker image:
+``` bash
+cd ../backend
+
 docker build -t your-dockerhub-username/node-backend:latest .
 
 docker push your-dockerhub-username/node-backend:latest
+```
 
 Alternatively you can straightly deploy docker-compose.yaml as:
 docker-compose up -d
@@ -99,4 +102,3 @@ Kubectl delete -f kubernetes/node-configmap.yaml
 Kubectl delete -f kubernetes/node-deployment.yaml
 
 minikube delete
-
