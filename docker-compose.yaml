@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-data:/data/db
+
+  node-backend:
+    image: anepal1/node-backend:latest
+    container_name: node-backend
+    restart: always
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/ayushdb
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongodb
+
+  nginx-frontend:
+    image: anepal1/nginx-frontend:latest
+    container_name: nginx-frontend
+    restart: always
+    ports:
+      - 8080:80
+    depends_on:
+      - node-backend
+
+volumes:
+  mongo-data:
+    driver: local
